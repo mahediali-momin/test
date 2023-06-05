@@ -31,6 +31,10 @@ export class AppComponent implements OnInit {
     this.checkdb()
   }
 
+  chnageC(color) {
+    document.documentElement.style.setProperty('--test-color', color);
+  }
+
   checkdb() {
     if (!('indexedDB' in window)) {
       console.log("This browser doesn't support IndexedDB");

@@ -11,7 +11,7 @@
 
 .ng-tooltip {
     position: absolute;
-    max-width: 150px;
+    max-width: 90%;
     font-size: 14px;
     text-align: center;
     color: #f8f8f2;
@@ -30,7 +30,7 @@
 
 .ng-tooltip-top:after {
     top: 100%;
-    left: 50%;
+    left: var(--tool-tip);
     margin-left: -5px;
     border-width: 5px;
     border-color: black transparent transparent transparent;

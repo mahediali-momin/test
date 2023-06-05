@@ -32,6 +32,8 @@ export class TooltipDirective {
       this.renderer.removeChild(document.body, this.tooltip);
       this.tooltip = null;
     }, this.delay);
+    document.documentElement.style.removeProperty('--tool-tip');
+
   }
 
   create() {
@@ -76,6 +78,15 @@ export class TooltipDirective {
     if (this.placement === 'right') {
       top = hostPos.top + (hostPos.height - tooltipPos.height) / 2;
       left = hostPos.right + this.offset;
+    }
+
+    if (left < 0) { left = 10; }
+
+    if ((-3 <= (hostPos.width - tooltipPos.width))) {
+      document.documentElement.style.setProperty('--tool-tip', '50%');
+    }
+    else {
+      document.documentElement.style.setProperty('--tool-tip', `${hostPos.x - left + (hostPos.width / 2)}px`);
     }
 
     this.renderer.setStyle(this.tooltip, 'top', `${top + scrollPos}px`);
